@@ -1,16 +1,11 @@
 class CategoriesController < ApplicationController
   def index
-  end
-
-  def dit
-  end
-
-  def new
+    @categories = Category.all
   end
 
   def show
-  end
-
-  def destroy
+    @category = Category.find(params[:id])
+    @title = @category.name
+    @posts  = @category.posts
   end
 end

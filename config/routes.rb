@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-  get 'categories/index'
-
-  get 'categories/dit'
-
-  get 'categories/new'
-
-  get 'categories/show'
-
-  get 'categories/destroy'
-
   get 'home/index'
     resources :posts
     resources :categories
