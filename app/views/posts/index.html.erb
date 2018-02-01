@@ -1,3 +1,5 @@
 <h1>blogpost</h1>
-<h3>sample post1</h3>
-<p><%=@content_first%></p>
+<% @posts.each do |post| %>
+  <h3><%= link_to post.title, post%></h3>
+  <p><%=post.body%></p>
+<%end%>
