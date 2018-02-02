@@ -1,2 +1,7 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Welkom to my ruby blog!</h1>
+<p>This is some info about my Ruby blog</p>
+<% @posts.each do |post| %>
+  <h3><%= link_to post.title, post%></h3>
+  <p><%=post.body%></p>
+  <hr>
+<% end %>
