@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'trestle'
 
+gem 'trestle-auth'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

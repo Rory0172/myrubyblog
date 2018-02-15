@@ -1,10 +1,7 @@
-Trestle.resource(:posts) do
+Trestle.resource(:categories) do
   menu do
-    item :posts, icon: "fa fa-star", group: :blog_management
+    item :categories, icon: "fa fa-star", group: :blog_management
   end
-
-  # Define custom scopes for the index view
-  scope :all, default: true
 
   # Customize the table columns shown on the index view.
   #
@@ -16,7 +13,7 @@ Trestle.resource(:posts) do
 
   # Customize the form fields shown on the new/edit views.
   #
-  # form do |post|
+  # form do |category|
   #   text_field :name
   #
   #   row do
@@ -33,6 +30,6 @@ Trestle.resource(:posts) do
   #   http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
   #
   # params do |params|
-  #   params.require(:post).permit(:name, ...)
+  #   params.require(:category).permit(:name, ...)
   # end
 end
