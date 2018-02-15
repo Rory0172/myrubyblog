@@ -6,6 +6,25 @@ Trestle.resource(:posts) do
   # Define custom scopes for the index view
   scope :all, default: true
 
+  form do
+    # Organize fields into tabs and sidebars
+    tab :post do
+      text_field :title
+
+      # Define custom form fields for easy re-use
+      editor :body
+      select :category_id, Category.all
+    end
+
+    tab :metadata do
+      # Layout fields based on a 12-column grid
+      row do
+        col(sm: 6) { select :administrator_id, Administrator.all }
+      end
+    end
+
+  end
+
   # Customize the table columns shown on the index view.
   #
   # table do
