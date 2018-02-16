@@ -14,24 +14,22 @@ Trestle.resource(:posts) do
       # Define custom form fields for easy re-use
       editor :body
       select :category_id, Category.all
-    end
-
-    tab :metadata do
-      # Layout fields based on a 12-column grid
-      row do
-        col(sm: 6) { select :administrator_id, Administrator.all }
-      end
-    end
-
+      select :administrator_id, Administrator.all, label: "Author"
+    end 
   end
 
   # Customize the table columns shown on the index view.
   #
-  # table do
-  #   column :name
-  #   column :created_at, align: :center
-  #   actions
-  # end
+  table do
+    column :title
+    column :body
+    column :category
+    column :administrator, header: "Author(s)"
+    column :updated_at, align: :center
+    actions
+  end
+
+
 
   # Customize the form fields shown on the new/edit views.
   #
@@ -51,7 +49,4 @@ Trestle.resource(:posts) do
   # For further information, see the Rails documentation on Strong Parameters:
   #   http://guides.rubyonrails.org/action_controller_overview.html#strong-parameters
   #
-  # params do |params|
-  #   params.require(:post).permit(:name, ...)
-  # end
 end
