@@ -8,7 +8,7 @@ Trestle.resource(:posts) do
 
   form do
     # Organize fields into tabs and sidebars
-    tab :post, current_user do
+    tab :post do
       text_field :title
 
       # Define custom form fields for easy re-use
