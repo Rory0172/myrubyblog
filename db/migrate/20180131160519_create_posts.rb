@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.text :body
       t.integer :category_id
       t.integer :administrator_id
+      t.boolean :published, null: false, default: true
 
       t.timestamps
     end

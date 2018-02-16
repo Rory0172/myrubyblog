@@ -9,6 +9,7 @@ Trestle.resource(:posts) do
   form do
     # Organize fields into tabs and sidebars
     tab :post do
+      check_box :published
       text_field :title
 
       # Define custom form fields for easy re-use
@@ -25,6 +26,9 @@ Trestle.resource(:posts) do
     column :body
     column :category
     column :administrator, ->(post) { "#{post.administrator.first_name} #{post.administrator.last_name}"}, header: "Author"
+    column :published, align: :center do |post|
+      status_tag(icon("fa fa-check"), :success) if post.published?
+    end
     column :updated_at, align: :center
     actions
   end
