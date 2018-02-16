@@ -8,13 +8,13 @@ Trestle.resource(:posts) do
 
   form do
     # Organize fields into tabs and sidebars
-    tab :post do
+    tab :post, current_user do
       text_field :title
 
       # Define custom form fields for easy re-use
       editor :body
       select :category_id, Category.all
-      select :administrator_id, Administrator.all, label: "Author"
+      select :administrator_id, current_user, label: "Author"
     end 
   end
 
@@ -24,7 +24,7 @@ Trestle.resource(:posts) do
     column :title
     column :body
     column :category
-    column :administrator, header: "Author(s)"
+    column :administrator, ->(post) { "#{post.administrator.first_name} #{post.administrator.last_name}"}, header: "Author"
     column :updated_at, align: :center
     actions
   end
