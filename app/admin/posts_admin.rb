@@ -5,6 +5,8 @@ Trestle.resource(:posts) do
 
   # Define custom scopes for the index view
   scope :all, default: true
+  scope :published, -> { Post.where(published: true).load }
+  scope :drafts, -> { Post.where(published: false).load }
 
   form do
     # Organize fields into tabs and sidebars
